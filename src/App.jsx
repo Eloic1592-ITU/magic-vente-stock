@@ -1,7 +1,9 @@
 function App() {
   return (
     <>
-      <h1 className="">Login Page Heeeeere</h1>
+      <div className="flex h-screen justify-center items-center">
+        <button className="btn btn-accent">Login Page Heeeeere</button>
+      </div>
     </>
   );
 }
