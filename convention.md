@@ -139,9 +139,7 @@ export const fetchProfile = () => api.get('/profile');
 * `main` : Branche principale pour la production.
 * `develop` : Branche de développement pour merger les fonctionnalités en cours.
 * `front-[nom]` : Branche pour le développement frontend.
-
-  * Exemple : `front-login`, `front-dashboard`
-* `feature-[nom]` : Branche pour les nouvelles fonctionnalités.
+* `feature-[nom]` : Branche pour les dev integrateur.
 
   * Exemple : `feature-authentication`, `feature-stock-management`
 
