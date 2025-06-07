@@ -5,7 +5,7 @@ function DailyProduct() {
       <img
         src="/src/assets/pantalon zook.png"
         alt="Pantalon Zouk"
-        className="z-10 mt-2"
+        className="z-10 mt-20"
       />
 
       {/* Texte par-dessus */}
