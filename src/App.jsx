@@ -7,6 +7,7 @@ function App() {
         <button className="btn btn-accent">Login Page Heeeeere</button>
       </div> */}
       <LoginPage />
+      
     </>
   );
 }
