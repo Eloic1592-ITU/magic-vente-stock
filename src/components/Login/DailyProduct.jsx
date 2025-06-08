@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { getProduitDuJour } from "../../services/api";
 
 function DailyProduct() {
-
   const [produit, setProduit] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     getProduitDuJour()
-      .then(data => {
+      .then((data) => {
         setProduit(data);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError("Erreur lors du chargement du produit.");
         setLoading(false);
       });
@@ -26,8 +25,9 @@ function DailyProduct() {
     <div className="relative flex flex-col items-center">
       {/* image et libellé du Produit du jour */}
       <img
-        src = { produit.image }
-        alt=  { produit.libelle }
+        // src = { produit.image }
+        src="/src/assets/pantalon zook.png"
+        alt={produit.libelle}
         className="z-10 mt-20"
       />
 
@@ -40,9 +40,9 @@ function DailyProduct() {
       >
         <div>
           <h1 className="text-sm uppercase">Produit du jour</h1>
-          <h2 className="text-4xl font-bold">{ produit.libelle }</h2>
-          <p>au prix de { produit.prix } Euro</p>
-          <p>quantité en stock { produit.quantiteEnStock }</p>
+          <h2 className="text-4xl font-bold">{produit.libelle}</h2>
+          <p>au prix de {produit.prix} Gondariar</p>
+          <p>quantité en stock {produit.quantiteEnStock} Unité</p>
         </div>
       </div>
     </div>
