@@ -35,7 +35,7 @@ function DailyProduct() {
       <div
         className="bg-cover bg-no-repeat bg-center w-[713px] h-[463px] -mt-20 rounded-sm flex flex-col items-center justify-center text-white p-4"
         style={{
-          backgroundImage: "url('/src/assets/black pattern.png')",
+          backgroundImage: "url('/public/img/login-page/black-pattern.png')",
         }}
       >
         <div className="lg:w-[350px] sm:w-[300px] w-[200px] pl-12">
