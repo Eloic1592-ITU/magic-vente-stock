@@ -28,19 +28,24 @@ function DailyProduct() {
         // src = { produit.image }
         src="/src/assets/pantalon zook.png"
         alt={produit.libelle}
-        className="z-10 mt-20"
+        className="z-10 mt-14"
       />
 
       {/* Texte par-dessus */}
       <div
-        className="bg-cover bg-no-repeat bg-center w-[713px] h-[463px] -mt-44 rounded-sm flex flex-col items-center justify-center text-white p-4"
+        className="bg-cover bg-no-repeat bg-center w-[713px] h-[463px] -mt-20 rounded-sm flex flex-col items-center justify-center text-white p-4"
         style={{
           backgroundImage: "url('/src/assets/black pattern.png')",
         }}
       >
-        <div>
+        <div className="lg:w-[350px] sm:w-[300px] w-[200px] pl-12">
           <h1 className="text-sm uppercase">Produit du jour</h1>
-          <h2 className="text-4xl font-bold">{produit.libelle}</h2>
+          <h2
+            className="text-4xl font-bold"
+            style={{ fontFamily: "Inknut Antiqua, serif" }}
+          >
+            {produit.libelle}
+          </h2>
           <p>au prix de {produit.prix} Gondariar</p>
           <p>quantité en stock {produit.quantiteEnStock} Unité</p>
         </div>
