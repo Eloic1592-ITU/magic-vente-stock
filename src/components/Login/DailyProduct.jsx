@@ -38,7 +38,7 @@ function DailyProduct() {
           backgroundImage: "url('/src/assets/black pattern.png')",
         }}
       >
-        <div className="lg:w-[350px] sm:w-[300px] w-[200px]">
+        <div className="lg:w-[350px] sm:w-[300px] w-[200px] pl-12">
           <h1 className="text-sm uppercase">Produit du jour</h1>
           <h2
             className="text-4xl font-bold"
