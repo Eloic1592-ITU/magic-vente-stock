@@ -40,7 +40,12 @@ function DailyProduct() {
       >
         <div>
           <h1 className="text-sm uppercase">Produit du jour</h1>
-          <h2 className="text-4xl font-bold">{produit.libelle}</h2>
+          <h2
+            className="text-4xl font-bold"
+            style={{ fontFamily: "Inknut Antiqua, serif" }}
+          >
+            {produit.libelle}
+          </h2>
           <p>au prix de {produit.prix} Gondariar</p>
           <p>quantité en stock {produit.quantiteEnStock} Unité</p>
         </div>
