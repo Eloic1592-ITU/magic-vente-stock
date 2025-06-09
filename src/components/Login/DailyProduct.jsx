@@ -26,7 +26,7 @@ function DailyProduct() {
       {/* image et libellé du Produit du jour */}
       <img
         // src = { produit.image }
-        src="/src/assets/pantalon zook.png"
+        src="/public/img/login-page/PantalonZouk.png"
         alt={produit.libelle}
         className="z-10 mt-14"
       />
