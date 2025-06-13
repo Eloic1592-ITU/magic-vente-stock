@@ -12,7 +12,7 @@ function LoginForm() {
 
         {/* Titre */}
         <p
-          className="text-center mt-4 font-semibold"
+          className="mt-4 font-semibold text-center"
           style={{ fontFamily: "Inknut Antiqua, serif" }}
         >
           Connectez-vous avec <br /> votre compte
@@ -20,7 +20,7 @@ function LoginForm() {
       </div>
 
       {/* Formulaire */}
-      <form className="flex flex-col w-full mt-6 gap-4">
+      <form className="flex flex-col w-full gap-4 mt-6">
         <div className="flex flex-col">
           <label
             className="text-[#b98d44] font-semibold"
