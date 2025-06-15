@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Basket() {
   const [quantity, setQuantity] = useState(0);
