@@ -1,14 +1,33 @@
 import Basket from "../components/Basket";
 import {useAuth} from "../contexts/AuthContext.jsx";
+import { useEffect, useState } from "react";
+import { getProduitDuJour } from "../services/api";
 
 function HomePage() {
     const {currentUser} = useAuth();
+    const [produitDuJour, setProduitDuJour] = useState(null);
+
+    useEffect(() => {
+        const fetchProduit = async () => {
+            try {
+                const produit = await getProduitDuJour();
+                setProduitDuJour(produit);
+            } catch (error) {
+                console.error("Erreur lors du chargement du produit du jour :", error);
+            }
+        };
+        fetchProduit();
+    }, []);
+
+    if (!produitDuJour) {
+        return <div>Chargement du produit du jour...</div>;
+    }
 
     const item = {
-        itemName: "Parchemin de téléportation instantanée",
-        itemPrice: 260,
-        itemStock: 47,
-        itemImage: "/img/home-page/parchemin.png",
+        itemName: produitDuJour.libelle,
+        itemPrice: produitDuJour.prix,
+        itemStock: produitDuJour.quantiteEnStock,
+        itemImage: produitDuJour.image,
     };
     return (
         <div
