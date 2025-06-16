@@ -24,7 +24,8 @@ function LoginForm() {
             setLoading(true);
             await login(pseudo, password);
             navigate('/');
-        } catch (error) {
+            // eslint-disable-next-line no-unused-vars
+        } catch (e) {
             setError('Email ou mot de passe incorrect');
         } finally {
             setLoading(false);
@@ -51,6 +52,8 @@ function LoginForm() {
                 </p>
             </div>
 
+            {error && <div className="error-message">{error}</div>}
+
             {/* Formulaire */}
             <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4 mt-6">
                 <div className="flex flex-col">
@@ -61,12 +64,11 @@ function LoginForm() {
                         Pseudo
                     </label>
                     <input
-                        type="email"
-                        id="email"
+                        type="text"
+                        id="pseudo"
                         value={pseudo}
                         onChange={(e) => setPseudo(e.target.value)}
-                        placeholder="Entrez votre email"
-                        required
+                        placeholder="Entrez votre pseudo..."
                         className="border border-[#b98d44] bg-[#e7e3d9] p-2"
                     />
                 </div>
@@ -83,8 +85,7 @@ function LoginForm() {
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Entrez votre mot de passe"
-                        required
+                        placeholder="Entrez votre mot de passe..."
                         className="border border-[#b98d44] bg-[#e7e3d9] p-2"
                     />
                 </div>

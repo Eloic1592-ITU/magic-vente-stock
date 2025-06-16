@@ -1,30 +1,29 @@
-const API_URL = import.meta.env.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+import axios from "axios";
+
+const API_URL = import.meta.env.REACT_APP_API_URL || 'https://magic-vente-stock-backend-bxpd.onrender.com';
 
 export const authService = {
-    login: async (email, password) => {
+    login: async (pseudo, password) => {
         try {
-            const response = await fetch(`${API_URL}/auth/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            const response = await axios.post(
+                `${API_URL}/auth/user`,
+                {
+                    "pseudo": pseudo,
+                    "motdepasse": password
                 },
-                body: JSON.stringify({ email, password }),
-            });
+                {headers: {'Content-Type': 'application/json'}}
+            );
 
-            const data = await response.json();
+            const data = response.data;
 
-            if (!response.ok) {
-                throw new Error(data.message || 'Échec de la connexion');
-            }
-
-            // Si la connexion réussit, stocker le token
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('user', JSON.stringify(data.user || {}));
 
             return data;
         } catch (error) {
             console.error('Erreur login:', error);
-            throw error;
+            const message = error.response?.data?.message || 'Échec de la connexion';
+            throw new Error(message);
         }
     },
 
