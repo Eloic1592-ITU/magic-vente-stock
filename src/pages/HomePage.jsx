@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
 import Basket from "../components/Basket";
 import {useAuth} from "../contexts/AuthContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
     const {currentUser} = useAuth();
     const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const {logout} = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setUser(currentUser);
@@ -17,6 +21,16 @@ function HomePage() {
         itemImage: "/img/home-page/parchemin.png",
     };
 
+    const disconnect = () => {
+        try {
+            logout();
+            navigate('/login');
+            // eslint-disable-next-line no-unused-vars
+       } catch (e) {
+            setError('Erreur lors de la déconnexion');
+        }
+    };
+
     return (
         <div
             className="h-screen w-screen xl:h-[900px] bg-[length:100%_100%] bg-no-repeat overflow-hidden"
@@ -25,6 +39,16 @@ function HomePage() {
                 fontFamily: "Inknut Antiqua, serif",
             }}
         >
+            <button
+                onClick={disconnect}
+                className="mt-4 bg-[#3c2e1e] text-[#f6c669] font-semibold px-4 py-2 hover:cursor-pointer"
+                style={{ fontFamily: "Inknut Antiqua, serif" }}
+            >
+                Se deconnecter
+            </button>
+
+            {error && <div className="error-message" style={{fontFamily: "Inknut Antiqua, serif"}}>{error}</div>}
+
             {/* titre  */}
             <div className="w-full flex justify-center py-10 flex-col items-center">
                 <img
