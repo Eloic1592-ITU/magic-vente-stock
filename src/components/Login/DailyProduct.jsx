@@ -36,16 +36,12 @@ function DailyProduct() {
         className="bg-cover bg-no-repeat bg-center w-[713px] h-[463px] -mt-20 rounded-sm flex flex-col items-center justify-center text-white p-4"
         style={{
           backgroundImage: "url('/img/login-page/black-pattern.png')",
+          fontFamily: "Inknut Antiqua, serif",
         }}
       >
         <div className="lg:w-[350px] sm:w-[300px] w-[200px] pl-12">
           <h1 className="text-sm uppercase">Produit du jour</h1>
-          <h2
-            className="text-4xl font-bold"
-            style={{ fontFamily: "Inknut Antiqua, serif" }}
-          >
-            {produit.libelle}
-          </h2>
+          <h2 className="text-4xl font-bold">{produit.libelle}</h2>
           <p>au prix de {produit.prix} Gondariar</p>
           <p>quantité en stock {produit.quantiteEnStock} Unité</p>
         </div>
