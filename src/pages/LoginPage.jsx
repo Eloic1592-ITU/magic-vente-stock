@@ -15,7 +15,7 @@ function LoginPage() {
       </div>
 
       {/* Produit du jour */}
-      <div className="col-span-8 flex justify-center h-screen">
+      <div className="col-span-8 flex justify-center h-screen flex items-center">
         <DailyProduct />
       </div>
     </div>
