@@ -4,6 +4,8 @@ import {useAuth} from "../contexts/AuthContext.jsx";
 import { useEffect, useState } from "react";
 import { getProduitDuJour } from "../services/api";
 import {useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getProduitDuJour } from "../services/api";
 
 function HomePage() {
     const {currentUser} = useAuth();
@@ -33,6 +35,23 @@ function HomePage() {
     useEffect(() => {
         setUser(currentUser);
     }, [currentUser]);
+    const [produitDuJour, setProduitDuJour] = useState(null);
+
+    useEffect(() => {
+        const fetchProduit = async () => {
+            try {
+                const produit = await getProduitDuJour();
+                setProduitDuJour(produit);
+            } catch (error) {
+                console.error("Erreur lors du chargement du produit du jour :", error);
+            }
+        };
+        fetchProduit();
+    }, []);
+
+    if (!produitDuJour) {
+        return <div>Chargement du produit du jour...</div>;
+    }
 
     const item = {
         itemName: produitDuJour.libelle,
