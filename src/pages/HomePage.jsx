@@ -1,8 +1,14 @@
+import React, {useEffect, useState} from "react";
 import Basket from "../components/Basket";
 import {useAuth} from "../contexts/AuthContext.jsx";
 
 function HomePage() {
     const {currentUser} = useAuth();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        setUser(currentUser);
+    }, [currentUser]);
 
     const item = {
         itemName: "Parchemin de téléportation instantanée",
@@ -10,6 +16,7 @@ function HomePage() {
         itemStock: 47,
         itemImage: "/img/home-page/parchemin.png",
     };
+
     return (
         <div
             className="h-screen w-screen xl:h-[900px] bg-[length:100%_100%] bg-no-repeat overflow-hidden"
@@ -39,10 +46,14 @@ function HomePage() {
             {/* texte de bienvenue */}
             <div className="grid grid-cols-12">
                 <div className="ml-48 col-span-6">
-                    <p className="text-5xl text-black leading-16">
-                        Bienvenue cher <br></br>
-                        <span className="text-amber-900">{currentUser.userId}</span>
-                    </p>
+                    {user ? (
+                        <p className="text-5xl text-black leading-16">
+                            Bienvenue cher <br/>
+                            <span className="text-amber-900">{user.userId}</span>
+                        </p>
+                    ) : (
+                        <p className="text-5xl text-black leading-16">Chargement...</p>
+                    )}
                     <p className="text-2xl text-black leading-10 mt-10">
                         Le produit du jour est le{" "}
                         <span className="text-amber-900">{item.itemName}</span> <br></br>au
