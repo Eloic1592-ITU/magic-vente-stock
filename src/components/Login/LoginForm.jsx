@@ -26,7 +26,7 @@ function LoginForm() {
             navigate('/');
             // eslint-disable-next-line no-unused-vars
         } catch (e) {
-            setError('Email ou mot de passe incorrect');
+            setError('Pseudo ou mot de passe incorrect');
         } finally {
             setLoading(false);
         }
@@ -52,7 +52,7 @@ function LoginForm() {
                 </p>
             </div>
 
-            {error && <div className="error-message">{error}</div>}
+            {error && <div className="error-message" style={{fontFamily: "Inknut Antiqua, serif"}}>{error}</div>}
 
             {/* Formulaire */}
             <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4 mt-6">

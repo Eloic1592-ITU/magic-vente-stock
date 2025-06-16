@@ -19,9 +19,9 @@ export function AuthProvider({ children }) {
 
     const login = async (pseudo, password) => {
         try {
-            const data = await authService.login(pseudo, password);
-            setCurrentUser(data.user);
-            return data;
+            const { user } = await authService.login(pseudo, password);
+            setCurrentUser(user);
+            return user;
         } catch (error) {
             throw error;
         }

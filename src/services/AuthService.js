@@ -1,6 +1,7 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
-const API_URL = import.meta.env.REACT_APP_API_URL || 'https://magic-vente-stock-backend-bxpd.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const authService = {
     login: async (pseudo, password) => {
@@ -17,7 +18,10 @@ export const authService = {
             const data = response.data;
 
             localStorage.setItem('authToken', data.token);
-            localStorage.setItem('user', JSON.stringify(data.user || {}));
+
+            const tokenValue = jwtDecode(data.token);
+
+            localStorage.setItem('user', JSON.stringify(tokenValue || {}));
 
             return data;
         } catch (error) {
