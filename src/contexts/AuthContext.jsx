@@ -18,10 +18,12 @@ export function AuthProvider({ children }) {
     }, []);
 
     const login = async (pseudo, password) => {
+        // eslint-disable-next-line no-useless-catch
         try {
-            const { user } = await authService.login(pseudo, password);
-            setCurrentUser(user);
-            return user;
+            await authService.login(pseudo, password);
+            const userData = authService.getCurrentUser();
+            setCurrentUser(userData);
+            return userData;
         } catch (error) {
             throw error;
         }
