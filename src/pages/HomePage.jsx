@@ -97,7 +97,7 @@ function HomePage() {
           {user ? (
             <p className="text-5xl text-black leading-16">
               Bienvenue cher <br />
-              <span className="text-[#CFA15D]">{user.userId}</span>
+              <span className="text-[#CFA15D]">{user.nom} {user.prenom}</span>
             </p>
           ) : (
             <p className="text-5xl text-black leading-16">Chargement...</p>
