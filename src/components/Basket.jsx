@@ -3,6 +3,9 @@ import { useState } from "react";
 function Basket() {
   const [quantity, setQuantity] = useState(0);
 
+  const decrementQuantity = () => {
+    setQuantity((prev) => Math.max(0, prev - 1));
+  };
   return (
     <div>
       {/* product image */}
@@ -12,7 +15,7 @@ function Basket() {
           type="submit"
           className="mt-4 bg-[#3c2e1e] text-[#f6c669] font-semibold px-4 py-2 hover:cursor-pointer"
           style={{ fontFamily: "Inknut Antiqua, serif" }}
-          onClick={() => setQuantity(quantity - 1)}
+          onClick={decrementQuantity}
         >
           -
         </button>
