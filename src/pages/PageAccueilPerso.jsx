@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Basket from "../components/Basket";
+import Basket from "../components/Basket.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
-import { getProduitDuJour } from "../services/api";
+import { getProduitDuJour } from "../services/api.jsx";
 
-function HomePage() {
+function PageAccueilPerso() {
   const { currentUser, logout } = useAuth();
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
@@ -97,7 +97,9 @@ function HomePage() {
           {user ? (
             <p className="text-5xl text-black leading-16">
               Bienvenue cher <br />
-              <span className="text-[#CFA15D]">{user.nom} {user.prenom}</span>
+              <span className="text-[#CFA15D]">
+                {user.nom} {user.prenom}
+              </span>
             </p>
           ) : (
             <p className="text-5xl text-black leading-16">Chargement...</p>
@@ -139,4 +141,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default PageAccueilPerso;
