@@ -24,7 +24,11 @@ function DailyProduct() {
   return (
     <div className="relative flex flex-col items-center">
       {/* image et libellé du Produit du jour */}
-      <img src={produit.image} alt={produit.libelle} className="z-10 mt-14" />
+      <img
+        src={produit.image}
+        alt={produit.libelle}
+        className="z-10 mt-14 h-60 w-fit"
+      />
 
       {/* Texte par-dessus */}
       <div
